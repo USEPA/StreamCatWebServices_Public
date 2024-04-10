@@ -3,3 +3,4 @@ window.onload = () => {
           url: 'swagger_update.yml',
           dom_id: '#ui',
     });
+};
