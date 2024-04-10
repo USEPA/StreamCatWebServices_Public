@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>StreamCat Swagger API Documentation</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <script src="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui-bundle.js" crossorigin></script>
+  </head>
+  <body>
+    <main>
+      <div id='swagger'></div>
+    </main>
+	<script src="index.js"></script>
+  <script>
+    window.onload = () => {
+        window.ui = SwaggerUIBundle({
+          url: 'https://raw.githubusercontent.com/USEPA/StreamCatWebServices_Public/main/swagger_update.yml',
+          dom_id: '#swagger',
+        });
+</script>
+  </body>
+</html>
