@@ -1,0 +1,249 @@
+swagger: "2.0"
+info:
+  title: "StreamCat Web Service API"
+  version: "1.0.0"
+host: "java.epa.gov"
+basePath: "/StreamCAT/metrics"	
+schemes:
+- "https"
+- "http"
+paths:
+  /metrics:
+    get:
+      tags:
+        - "metrics"
+      summary: "Query by metric."
+      description: ""
+      parameters:
+        - in: "query"
+          name: "name"
+          description: "(required for query functions) Names of a metric to query."
+          required: false
+          type: "string"
+        - in: "query"
+          name: "f"
+          description: "Output format."
+          required: false
+          type: "string"
+        - in: "query"
+          name: "comid"
+          description: "Return metric information about specific COMIDs."
+          required: false
+          type: "string"
+          pattern: "-*[0-9]+(,-*[0-9]+)*"
+        - in: "query"
+          name: "county"
+          description: "Return metric information for COMIDs within a specific county. Users must use FIPS code, not county name, as a way to disambiguate counties."
+          required: false
+          type: "string"          
+          
+        - in: "query"
+          name: "countOnly"
+          description: "Returns a CSV containing the row count (ROWCOUNT) and the column count (COLUMNCOUNT) that the server expects to return in a request."
+          required: false
+          type: "string"
+        - in: "query"
+          name: "conus"
+          description: "Return all COMIDs in the coterminous United States. The default value is false."
+          type: "string"
+        - in: "query"
+          name: "region"
+          description: "Return metric information for COMIDs within a specified hydroregion."
+          pattern: "region[0-9][0-9][A-Za-z](,region[0-9][0-9][A-Za-z])*"
+          required: false
+          type: "string"          
+        - in: "query"
+          name: "state"
+          description: "Return metric information for COMIDs within a specific state. Use a state's abbreviation to query for a given state."
+          required: false
+          type: "string"
+          pattern: "[A-Z][A-Z](,[A-Z][A-Z])*"
+        - in: "query"
+          name: "areaOfInterest"
+          description: "Specify the area of interest described by a metric. By default, all available areas of interest for a given metric are returned."
+          required: false
+          type: "string"
+          items:
+            type: "string"
+            enum:
+            - "catchment"
+            - "watershed"
+            - "riparian_catchment"
+            - "riparian_watershed"
+            default: "catchment"
+          collectionFormat: "multi"
+        
+      responses:
+        "200":
+          description: "The search query was successful."
+        "404":
+          description: "The search query returned no results."
+        "206":
+          description: "The search query did not return a complete set of results."
+        "400":
+          description: "The query is invalid because the right set of parameters was not sent."
+        "500":
+          description: "An internal server error occurred when processing the request."
+    post:
+      tags:
+        - "metrics"
+      summary: "Retrieve information about queried metrics using POST.."
+      parameters:
+        - in: body
+          name: url_string
+          description: "Enter in query formatted as HTTP Get URL parameters (ie; name=fert&comid=179)"
+          required: false
+          schema:
+            type: string  # <----------      
+      description: ""
+      consumes:
+        - text/plain; charset=utf-8
+      responses:
+        "200":
+          description: "The search query was successful."
+        "404":
+          description: "The search query returned no results."
+        "206":
+          description: "The search query did not return a complete set of results."
+        "400":
+          description: "The query is invalid because the right set of parameters was not sent."
+        "500":
+          description: "An internal server error occurred when processing the request."
+  /metrics/variable_info.csv:
+    get:
+      summary: "Get additional information."
+      description: "Get additional information regarding displayed metrics."
+      produces:
+      - "text/csv"
+      responses:
+        "200":
+          description: "Success."
+        "500":
+          description: "Server has encountered an internal error."
+  /metrics/datadictionary:
+    get:
+      summary: Data dictionary service
+      description: "Retrieve a data dictionary associating display names with metric names."
+      responses:
+        "200":
+          description: "Success."        
+  /LakeCat/metrics:
+    get:
+      tags:
+        - "metrics"
+      summary: "Query by metric."
+      description: ""
+      parameters:
+        - in: "query"
+          name: "name"
+          description: "(required for query functions) Names of a metric to query."
+          required: false
+          type: "string"
+        - in: "query"
+          name: "f"
+          description: "Output format."
+          required: false
+          type: "string"
+        - in: "query"
+          name: "comid"
+          description: "Return metric information about specific COMIDs."
+          required: false
+          type: "string"
+          pattern: "-*[0-9]+(,-*[0-9]+)*"
+        - in: "query"
+          name: "county"
+          description: "Return metric information for COMIDs within a specific county. Users must use FIPS code, not county name, as a way to disambiguate counties."
+          required: false
+          type: "string"          
+          
+        - in: "query"
+          name: "countOnly"
+          description: "Returns a CSV containing the row count (ROWCOUNT) and the column count (COLUMNCOUNT) that the server expects to return in a request."
+          required: false
+          type: "string"
+        - in: "query"
+          name: "conus"
+          description: "Return all COMIDs in the coterminous United States. The default value is false."
+          type: "string"
+        - in: "query"
+          name: "region"
+          description: "Return metric information for COMIDs within a specified hydroregion."
+          pattern: "region[0-9][0-9][A-Za-z](,region[0-9][0-9][A-Za-z])*"
+          required: false
+          type: "string"          
+        - in: "query"
+          name: "state"
+          description: "Return metric information for COMIDs within a specific state. Use a state's abbreviation to query for a given state."
+          required: false
+          type: "string"
+          pattern: "[A-Z][A-Z](,[A-Z][A-Z])*"
+        - in: "query"
+          name: "areaOfInterest"
+          description: "Specify the area of interest described by a metric. By default, all available areas of interest for a given metric are returned."
+          required: false
+          type: "string"
+          items:
+            type: "string"
+            enum:
+            - "catchment"
+            - "watershed"
+            - "riparian_catchment"
+            - "riparian_watershed"
+            default: "catchment"
+          collectionFormat: "multi"
+        
+      responses:
+        "200":
+          description: "The search query was successful."
+        "404":
+          description: "The search query returned no results."
+        "206":
+          description: "The search query did not return a complete set of results."
+        "400":
+          description: "The query is invalid because the right set of parameters was not sent."
+        "500":
+          description: "An internal server error occurred when processing the request."
+    post:
+      tags:
+        - "metrics"
+      summary: "Retrieve information about queried metrics using POST.."
+      parameters:
+        - in: body
+          name: url_string
+          description: "Enter in query formatted as HTTP Get URL parameters (ie; name=fert&comid=179)"
+          required: false
+          schema:
+            type: string  # <----------      
+      description: ""
+      consumes:
+        - text/plain; charset=utf-8
+      responses:
+        "200":
+          description: "The search query was successful."
+        "404":
+          description: "The search query returned no results."
+        "206":
+          description: "The search query did not return a complete set of results."
+        "400":
+          description: "The query is invalid because the right set of parameters was not sent."
+        "500":
+          description: "An internal server error occurred when processing the request."
+  /LakeCat/metrics/variable_info.csv:
+    get:
+      summary: "Get additional information."
+      description: "Get additional information regarding displayed metrics."
+      produces:
+      - "text/csv"
+      responses:
+        "200":
+          description: "Success."
+        "500":
+          description: "Server has encountered an internal error."
+  /LakeCat/metrics/datadictionary:
+    get:
+      summary: Data dictionary service
+      description: "Retrieve a data dictionary associating display names with metric names."
+      responses:
+        "200":
+          description: "Success."        
+                    
