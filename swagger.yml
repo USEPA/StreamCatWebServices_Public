@@ -2,7 +2,7 @@ swagger: "2.0"
 info:
   title: "StreamCat Web Service API"
   version: "1.0.0"
-host: "java.epa.gov"
+host: java.epa.gov
 basePath: "/StreamCAT/metrics"	
 schemes:
 - "https"
