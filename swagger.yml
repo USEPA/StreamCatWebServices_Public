@@ -3,10 +3,10 @@ info:
   title: "StreamCat Web Service API"
   version: "1.0.0"
 host: java.epa.gov
-basePath: "/StreamCAT/metrics"	
+basePath: /StreamCAT/metrics
 schemes:
-- "https"
-- "http"
+- https
+- http
 paths:
   /metrics:
     get:
