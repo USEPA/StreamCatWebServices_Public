@@ -20,6 +20,8 @@ paths:
           description: "(required for query functions) Names of a metric to query."
           required: false
           type: "string"
+          example: "iwi"
+          
         - in: "query"
           name: "f"
           description: "Output format."
@@ -31,6 +33,7 @@ paths:
           required: false
           type: "string"
           pattern: "-*[0-9]+(,-*[0-9]+)*"
+          example: "179"
         - in: "query"
           name: "county"
           description: "Return metric information for COMIDs within a specific county. Users must use FIPS code, not county name, as a way to disambiguate counties."
@@ -71,8 +74,9 @@ paths:
             - "riparian_catchment"
             - "riparian_watershed"
             default: "catchment"
+            
           collectionFormat: "multi"
-        
+
       responses:
         "200":
           description: "The search query was successful."
