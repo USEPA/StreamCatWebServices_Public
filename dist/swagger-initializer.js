@@ -6,6 +6,7 @@ window.onload = function() {
     url: "swagger.yml",
     dom_id: '#swagger-ui',
     deepLinking: true,
+    
     presets: [
       SwaggerUIBundle.presets.apis,
       SwaggerUIStandalonePreset

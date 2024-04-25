@@ -20,7 +20,7 @@ paths:
           description: "(required for query functions) Names of a metric to query."
           required: false
           type: "string"
-          example: "iwi"
+          example: "pctagslphigh2013"
           
         - in: "query"
           name: "f"
@@ -33,13 +33,12 @@ paths:
           required: false
           type: "string"
           pattern: "-*[0-9]+(,-*[0-9]+)*"
-          example: "179"
+          example: "4853255"
         - in: "query"
           name: "county"
           description: "Return metric information for COMIDs within a specific county. Users must use FIPS code, not county name, as a way to disambiguate counties."
           required: false
           type: "string"          
-          
         - in: "query"
           name: "countOnly"
           description: "Returns a CSV containing the row count (ROWCOUNT) and the column count (COLUMNCOUNT) that the server expects to return in a request."
@@ -74,6 +73,7 @@ paths:
             - "riparian_catchment"
             - "riparian_watershed"
             default: "catchment"
+          example: "watershed" 
             
           collectionFormat: "multi"
 
