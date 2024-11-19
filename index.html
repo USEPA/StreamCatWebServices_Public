@@ -1,24 +1,29 @@
-<!-- HTML for static distribution bundle build -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <title>StreamCat Swagger UI</title>
     <link rel="stylesheet" type="text/css" href="dist/swagger-ui.css" />
-    <link rel="stylesheet" type="text/css" href="dist/index.css" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="icon" type="image/png" href="dist/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="dist/favicon-16x16.png" sizes="16x16" />
   </head>
 
   <body>
+    
     <nav class="navbar">
       <a href="#" id="streamcat-link">Streams</a>
       <a href="#" id="lakecat-link">Lakes</a>
       <a href="#" id="wetlands-link">Wetlands (coming soon)</a>
     </nav>
+    
     <div id="swagger-ui"></div>
-    <footer id="footer"><a href="https://www.epa.gov/national-aquatic-resource-surveys/streamcat-dataset">StreamCat Dataset Page</a></footer>
+
+    <footer id="footer">
+      <a href="https://www.epa.gov/national-aquatic-resource-surveys/streamcat-dataset">StreamCat Dataset Page</a>
+    </footer>
+
     <script src="dist/swagger-ui-bundle.js" charset="UTF-8"> </script>
     <script src="dist/swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
     <script src="dist/swagger-initializer.js" charset="UTF-8"> </script>

@@ -6,7 +6,7 @@
     },
     "servers": [
         {
-            "url": "https://ordsstage.epa.gov/ords/sestg1/streamcat/streamcat/"
+            "url": "https://api.epa.gov/StreamCat/streams"
         }
     ],
     "paths": {

@@ -1,12 +1,12 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "REST API for LakeCat",
+        "title": "REST API for StreamCat/lakes (LakeCat)",
         "version": "1.0.0"
     },
     "servers": [
         {
-            "url": "https://api.epa.gov/LakeCat"
+            "url": "https://api.epa.gov/StreamCat/lakes"
         }
     ],
     "paths": {
