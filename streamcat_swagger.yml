@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "ORDS generated API for StreamCat",
+        "title": "REST API for StreamCat/streams",
         "version": "1.0.0"
     },
     "servers": [
