@@ -15,8 +15,17 @@
 }
 
 .navbar a:hover {
-  background-color: #555;
+  background-color: #89bf04;
   border-radius: 5px;
+}
+
+footer {
+  background-color: #89bf04;
+  text-align: center;
+}
+
+footer a:hover {
+  background-color: #8abf0485;
 }
 
 #swagger-ui {
