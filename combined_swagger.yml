@@ -1,0 +1,629 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "REST API for StreamCat and LakeCat",
+        "version": "1.0.0",
+        
+    },
+    "externalDocs": {
+        "url": "https://www.epa.gov/national-aquatic-resource-surveys/streamcat-dataset"
+    },
+    "servers": [
+        {
+            "url": "https://api.epa.gov/StreamCat",
+        },
+        {
+            "url": "https://api.epa.gov/LakeCat",
+        }
+    ],
+    "paths": {
+        "/changelog": {
+            "get": {
+                "tags": ["StreamCat"],
+                "description": "Retrieve records from StreamCat",
+                "responses": {
+                    "200": {
+                        "description": "The queried record.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "date_updated": {
+                                                        "$ref": "#/components/schemas/TIMESTAMP"
+                                                    },
+                                                    "public_description": {
+                                                        "$ref": "#/components/schemas/CLOB"
+                                                    },
+                                                    "version": {
+                                                        "$ref": "#/components/schemas/NUMBER"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": []
+            }
+        },
+        "/datadictionary": {
+            "get": {
+                "tags": ["StreamCat"],
+                "description": "Retrieve records from StreamCat",
+                "responses": {
+                    "200": {
+                        "description": "The queried record.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "metrics": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "metric_prefix": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "short_display_name": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": []
+            }
+        },
+        "/metrics": {
+            "get": {
+                "tags": ["StreamCat"],
+                "description": "Retrieve records from StreamCat",
+                "responses": {
+                    "200": {
+                        "description": "The queried record.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "aoi_param_info": {
+                                                        "$ref": "#/components/schemas/OTHER"
+                                                    },
+                                                    "areas_of_interest": {
+                                                        "$ref": "#/components/schemas/OTHER"
+                                                    },
+                                                    "comid": {
+                                                        "$ref": "#/components/schemas/OTHER"
+                                                    },
+                                                    "conus": {
+                                                        "$ref": "#/components/schemas/OTHER"
+                                                    },
+                                                    "countonly": {
+                                                        "$ref": "#/components/schemas/OTHER"
+                                                    },
+                                                    "county_options": {
+                                                        "$ref": "#/components/schemas/OTHER"
+                                                    },
+                                                    "county_param_info": {
+                                                        "$ref": "#/components/schemas/OTHER"
+                                                    },
+                                                    "documentation": {
+                                                        "$ref": "#/components/schemas/OTHER"
+                                                    },
+                                                    "name_options": {
+                                                        "$ref": "#/components/schemas/OTHER"
+                                                    },
+                                                    "name_param_info": {
+                                                        "$ref": "#/components/schemas/OTHER"
+                                                    },
+                                                    "region_options": {
+                                                        "$ref": "#/components/schemas/OTHER"
+                                                    },
+                                                    "region_param_info": {
+                                                        "$ref": "#/components/schemas/OTHER"
+                                                    },
+                                                    "showpctfull": {
+                                                        "$ref": "#/components/schemas/OTHER"
+                                                    },
+                                                    "state_options": {
+                                                        "$ref": "#/components/schemas/OTHER"
+                                                    },
+                                                    "state_param_info": {
+                                                        "$ref": "#/components/schemas/OTHER"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": []
+            },
+            "post": {
+                "tags": ["StreamCat"],
+                "description": "Retrieve StreamCat data via POST",
+                "responses": {
+                    "201": {
+                        "description": "The successfully returned record.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "ret": {
+                                            "$ref": "#/components/schemas/RESULTSET"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "areaOfInterest",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "comid",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "conus",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "countOnly",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "county",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "name",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "region",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "showAreaSqKm",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "showPctFull",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "showShape",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "state",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ]
+            }
+        },
+        "/variable_info": {
+            "get": {
+                "tags": ["StreamCat"],
+                "description": "Retrieve a record from StreamCat",
+                "responses": {
+                    "200": {
+                        "description": "The queried record.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {}
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "file_type",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ]
+            }
+        },
+        "/changelog": {
+            "get": {
+                "tags": ["LakeCat"],
+                "description": "Retrieve records from LakeCat",
+                "responses": {
+                    "200": {
+                        "description": "The queried record.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "date_updated": {
+                                                        "$ref": "#/components/schemas/TIMESTAMP"
+                                                    },
+                                                    "public_description": {
+                                                        "$ref": "#/components/schemas/CLOB"
+                                                    },
+                                                    "version": {
+                                                        "$ref": "#/components/schemas/NUMBER"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": []
+            }
+        },
+        "/datadictionary": {
+            "get": {
+                "tags": ["LakeCat"],
+                "description": "Retrieve records from LakeCat",
+                "responses": {
+                    "200": {
+                        "description": "The queried record.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "metrics": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "metric_prefix": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "short_display_name": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": []
+            }
+        },
+        "/metrics": {
+            "post": {
+                "tags": ["LakeCat"],
+                "description": "Create a new record on LakeCat",
+                "responses": {
+                    "201": {
+                        "description": "The successfully created record.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "ret": {
+                                            "$ref": "#/components/schemas/RESULTSET"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "areaOfInterest",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "comid",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "conus",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "countOnly",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "county",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "name",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "region",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "showAreaSqKm",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "showPctFull",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "showShape",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "state",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LakeCat_ITEM"
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": ["LakeCat"],
+                "description": "Retrieve records from LakeCat",
+                "responses": {
+                    "200": {
+                        "description": "The queried record.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/variable_info": {
+            "get": {
+                "tags": ["LakeCat"],
+                "description": "Retrieve records from LakeCat",
+                "responses": {
+                    "200": {
+                        "description": "The queried record.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "aoi": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "date_downloaded": {
+                                                        "$ref": "#/components/schemas/DATE"
+                                                    },
+                                                    "dsid": {
+                                                        "$ref": "#/components/schemas/NUMBER"
+                                                    },
+                                                    "final_table": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "indicator_category": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "metadata": {
+                                                        "$ref": "#/components/schemas/CLOB"
+                                                    },
+                                                    "metric_description": {
+                                                        "$ref": "#/components/schemas/CLOB"
+                                                    },
+                                                    "metric_name": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "metric_units": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "source_name": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "source_url": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "uuid": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "webtool_name": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "year": {
+                                                        "$ref": "#/components/schemas/CLOB"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": []
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "CLOB": {
+                "type": "string"
+            },
+            "NUMBER": {
+                "type": "number"
+            },
+            "OTHER": {
+                "type": "string"
+            },
+            "RESULTSET": {
+                "type": "string"
+            },
+            "TIMESTAMP": {
+                "type": "string",
+                "format": "date-time",
+                "pattern": "^\\d{4}-[01]\\d-[0123]\\dT[012]\\d:[0-5]\\d:[0-5]\\d(.\\d+)?(Z|([-+][012]\\d:[0-5]\\d))$"
+            },
+            "VARCHAR2": {
+                "type": "string"
+            }
+        }
+    }
+}

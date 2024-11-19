@@ -1,0 +1,372 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "REST API for LakeCat",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://api.epa.gov/LakeCat"
+        }
+    ],
+    "paths": {
+        "/changelog": {
+            "get": {
+                "description": "Retrieve records from LakeCat",
+                "responses": {
+                    "200": {
+                        "description": "The queried record.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "date_updated": {
+                                                        "$ref": "#/components/schemas/TIMESTAMP"
+                                                    },
+                                                    "public_description": {
+                                                        "$ref": "#/components/schemas/CLOB"
+                                                    },
+                                                    "version": {
+                                                        "$ref": "#/components/schemas/NUMBER"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": []
+            }
+        },
+        "/datadictionary": {
+            "get": {
+                "description": "Retrieve records from LakeCat",
+                "responses": {
+                    "200": {
+                        "description": "The queried record.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "metrics": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "metric_prefix": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "short_display_name": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": []
+            }
+        },
+        "/metrics": {
+            "post": {
+                "description": "Create a new record on LakeCat",
+                "responses": {
+                    "201": {
+                        "description": "The successfully created record.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "ret": {
+                                            "$ref": "#/components/schemas/RESULTSET"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "areaOfInterest",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "comid",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "conus",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "countOnly",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "county",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "name",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "region",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "showAreaSqKm",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "showPctFull",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "showShape",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "state",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LakeCat_ITEM"
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Retrieve records from LakeCat",
+                "responses": {
+                    "200": {
+                        "description": "The queried record.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/variable_info": {
+            "get": {
+                "description": "Retrieve records from LakeCat",
+                "responses": {
+                    "200": {
+                        "description": "The queried record.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "aoi": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "date_downloaded": {
+                                                        "$ref": "#/components/schemas/DATE"
+                                                    },
+                                                    "dsid": {
+                                                        "$ref": "#/components/schemas/NUMBER"
+                                                    },
+                                                    "final_table": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "indicator_category": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "metadata": {
+                                                        "$ref": "#/components/schemas/CLOB"
+                                                    },
+                                                    "metric_description": {
+                                                        "$ref": "#/components/schemas/CLOB"
+                                                    },
+                                                    "metric_name": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "metric_units": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "source_name": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "source_url": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "uuid": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "webtool_name": {
+                                                        "$ref": "#/components/schemas/VARCHAR2"
+                                                    },
+                                                    "year": {
+                                                        "$ref": "#/components/schemas/CLOB"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": []
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "CLOB": {
+                "type": "string"
+            },
+            "DATE": {
+                "type": "string",
+                "format": "date-time",
+                "pattern": "^\\d{4}-[01]\\d-[0123]\\dT[012]\\d:[0-5]\\d:[0-5]\\d(.\\d+)?(Z|([-+][012]\\d:[0-5]\\d))$"
+            },
+            "NUMBER": {
+                "type": "number"
+            },
+            "RESULTSET": {
+                "type": "string"
+            },
+            "STRING": {
+                "type": "string"
+            },
+            "TIMESTAMP": {
+                "type": "string",
+                "format": "date-time",
+                "pattern": "^\\d{4}-[01]\\d-[0123]\\dT[012]\\d:[0-5]\\d:[0-5]\\d(.\\d+)?(Z|([-+][012]\\d:[0-5]\\d))$"
+            },
+            "VARCHAR2": {
+                "type": "string"
+            },
+            "LakeCat_ITEM": {
+                "properties": {
+                    "areaOfInterest": {
+                        "type": "string"
+                    },
+                    "comid": {
+                        "type": "string"
+                    },
+                    "conus": {
+                        "type": "string"
+                    },
+                    "countOnly": {
+                        "type": "string"
+                    },
+                    "county": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "p_showshape": {
+                        "type": "string"
+                    },
+                    "region": {
+                        "type": "string"
+                    },
+                    "showAreaSqKm": {
+                        "type": "string"
+                    },
+                    "showPctFull": {
+                        "type": "string"
+                    },
+                    "showShape": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
