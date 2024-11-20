@@ -7,10 +7,12 @@
   justify-content: center;
   background-color: #2C3E50;
   padding: 10px;
+  gap: 10px
 }
 
 .header h1{
   color:white;
+  padding: 20px
 }
 
 .navbar {
@@ -36,7 +38,7 @@
 
 #footer {
   background-color: #89bf04;
-  padding: 10px;
+  padding: 20px;
   text-align: center;
 }
 
