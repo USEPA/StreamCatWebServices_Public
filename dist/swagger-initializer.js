@@ -1,5 +1,6 @@
-import { SwaggerUIBundle } from "swagger-ui-dist";
-
+//import { SwaggerUIBundle } from "swagger-ui-bundle";
+// from https://swagger.io/docs/open-source-tools/swagger-ui/usage/installation/
+var SwaggerUIBundle = require("swagger-ui-dist").SwaggerUIBundle
 const loadSwaggerUI = (url) => {
     window.ui = SwaggerUIBundle({
         url: url,
