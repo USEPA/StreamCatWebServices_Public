@@ -7,6 +7,10 @@
   padding: 10px;
 }
 
+.navbar h1 {
+  padding: 10px 20px;
+}
+
 .navbar a {
   color: white;
   text-decoration: none;
@@ -19,21 +23,23 @@
   border-radius: 5px;
 }
 
-footer {
+#footer {
   background-color: #89bf04;
   padding: 10px;
   text-align: center;
 }
 
-footer a {
+.footer_link {
   color:white;
   padding: 10px 20px;
-  font-size: 18px;
+  font-size: 20px;
 }
 
-#footer a:hover {
-  background-color: #8abf0485;
+.footer_link:hover {
+  background-color: #2C3E50;
+  border-radius: 5px;
 }
+
 
 /* #swagger-ui {
   margin-top: 20px;
