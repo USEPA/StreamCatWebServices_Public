@@ -23,21 +23,21 @@ footer {
   background-color: #89bf04;
   padding: 10px;
   text-align: center;
-  
 }
 
 footer a {
   color:white;
   padding: 10px 20px;
+  font-size: 18px;
 }
 
-footer a:hover {
+#footer a:hover {
   background-color: #8abf0485;
 }
 
-#swagger-ui {
+/* #swagger-ui {
   margin-top: 20px;
-}
+} */
 
 .swagger-ui html {
   box-sizing: border-box
