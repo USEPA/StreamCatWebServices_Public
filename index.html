@@ -13,6 +13,8 @@
   <script src="dist/swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
 
   <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui.css" />
+  <script src="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui-standalone-preset.js"></script>
+
 
 </head>
 
@@ -41,7 +43,7 @@
         deepLinking: true,
         presets: [
           SwaggerUIBundle.presets.apis,
-          SwaggerUIBundle.presets.apis.standaloneLayout
+          SwaggerUIStandalonePreset //SwaggerUIBundle.presets.apis.standaloneLayout
         ],
         plugins: [
           SwaggerUIBundle.plugins.DownloadUrl
