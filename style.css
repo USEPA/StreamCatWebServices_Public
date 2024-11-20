@@ -1,5 +1,13 @@
 @charset "UTF-8";
 
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #2C3E50;
+  padding: 10px;
+}
+
 .navbar {
   display: flex;
   justify-content: center;
@@ -7,8 +15,9 @@
   padding: 10px;
 }
 
-.navbar h1 {
+.navbar h2 {
   padding: 10px 20px;
+  color: white
 }
 
 .navbar a {
