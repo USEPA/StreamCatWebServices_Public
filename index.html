@@ -1,32 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>StreamCat Swagger UI</title>
-    <link rel="stylesheet" type="text/css" href="dist/swagger-ui.css" />
-    <link rel="stylesheet" type="text/css" href="dist/index.css" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="icon" type="image/png" href="dist/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="dist/favicon-16x16.png" sizes="16x16" />
-  </head>
 
-  <body>
-    
-    <nav class="navbar">
-      <a href="#" id="streamcat-link">Streams</a>
-      <a href="#" id="lakecat-link">Lakes</a>
-      <a href="#" id="wetlands-link">Wetlands (coming soon)</a>
-    </nav>
-    
-    <div id="swagger-ui"></div>
+<head>
+  <meta charset="UTF-8">
+  <title>StreamCat Swagger UI</title>
+  <link rel="stylesheet" type="text/css" href="dist/swagger-ui.css" />
+  <link rel="stylesheet" type="text/css" href="dist/index.css" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="icon" type="image/png" href="dist/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="dist/favicon-16x16.png" sizes="16x16" />
+  <script src="dist/swagger-ui-bundle.js" charset="UTF-8"> </script>
+  <script src="dist/swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
 
-    <footer id="footer">
-      <a href="https://www.epa.gov/national-aquatic-resource-surveys/streamcat-dataset">StreamCat Dataset Page</a>
-    </footer>
+  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui.css" />
 
-    <script src="dist/swagger-ui-bundle.js" charset="UTF-8"> </script>
-    <script src="dist/swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
-    <!-- <script src="dist/index.js" charset="UTF-8"> </script> -->
-    <script src="dist/swagger-initializer.js" charset="UTF-8"> </script>
-  </body>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <a href="#" id="streamcat-link">Streams</a>
+    <a href="#" id="lakecat-link">Lakes</a>
+    <a href="#" id="wetlands-link">Wetlands (coming soon)</a>
+  </nav>
+
+  <div id="swagger-ui"></div>
+
+  <footer id="footer">
+    <a href="https://www.epa.gov/national-aquatic-resource-surveys/streamcat-dataset">StreamCat Dataset Page</a>
+  </footer>
+
+
+  <!-- <script src="dist/index.js" charset="UTF-8"> </script> -->
+  <!-- <script src="dist/swagger-initializer.js" charset="UTF-8"> </script> -->
+  <script>
+    const loadSwaggerUI = (url) => {
+      window.ui = SwaggerUIBundle({
+        url: url,
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIBundle.presets.apis.standaloneLayout
+        ],
+        plugins: [
+          SwaggerUIBundle.plugins.DownloadUrl
+        ],
+        layout: "StandaloneLayout"
+      });
+    };
+
+    document.getElementById('streamcat-link').addEventListener('click', () => {
+      loadSwaggerUI('streamcat_swagger.yml');
+    });
+
+    document.getElementById('lakecat-link').addEventListener('click', () => {
+      loadSwaggerUI('lakecat_swagger.yml');
+    });
+
+    // Load Streamcat by default
+    window.onload = () => {
+      loadSwaggerUI('streamcat_swagger.yml');
+    };
+  </script>
+</body>
+
 </html>
