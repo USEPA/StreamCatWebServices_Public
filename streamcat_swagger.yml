@@ -1,359 +1,529 @@
 {
     "openapi": "3.0.0",
-    "info": {
-        "title": "REST API for StreamCat/streams",
-        "version": "1.0.0"
-    },
-    "servers": [
+    "info": { "title": "REST API for StreamCat/streams", "version": "1.0.0" },
+    "servers": [{ "url": "https://api.epa.gov/StreamCat/streams" }],
+    "paths":
         {
-            "url": "https://api.epa.gov/StreamCat/streams"
-        }
-    ],
-    "paths": {
-        "/changelog": {
-            "get": {
-                "description": "Retrieve records from StreamCat",
-                "responses": {
-                    "200": {
-                        "description": "The queried record.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "items": {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "date_updated": {
-                                                        "$ref": "#/components/schemas/TIMESTAMP"
-                                                    },
-                                                    "public_description": {
-                                                        "$ref": "#/components/schemas/CLOB"
-                                                    },
-                                                    "version": {
-                                                        "$ref": "#/components/schemas/NUMBER"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+            "/changelog":
+                {
+                    "get":
+                        {
+                            "description": "Retrieve records from StreamCat",
+                            "responses":
+                                {
+                                    "200":
+                                        {
+                                            "description": "The queried record.",
+                                            "content":
+                                                {
+                                                    "application/json":
+                                                        {
+                                                            "schema":
+                                                                {
+                                                                    "type": "object",
+                                                                    ? "properties"
+                                                                    : {
+                                                                          ? "items"
+                                                                          : {
+                                                                                "type": "array",
+                                                                                ? "items"
+                                                                                : {
+                                                                                      "type": "object",
+                                                                                      ? "properties"
+                                                                                      : {
+                                                                                            ? "date_updated"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/TIMESTAMP",
+                                                                                              },
+                                                                                            ? "public_description"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/CLOB",
+                                                                                              },
+                                                                                            ? "version"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/NUMBER",
+                                                                                              },
+                                                                                        },
+                                                                                  },
+                                                                            },
+                                                                      },
+                                                                },
+                                                        },
+                                                },
+                                        },
+                                },
+                            "parameters": [],
+                        },
                 },
-                "parameters": []
-            }
+            "/datadictionary":
+                {
+                    "get":
+                        {
+                            "description": "Retrieve records from StreamCat",
+                            "responses":
+                                {
+                                    "200":
+                                        {
+                                            "description": "The queried record.",
+                                            "content":
+                                                {
+                                                    "application/json":
+                                                        {
+                                                            "schema":
+                                                                {
+                                                                    "type": "object",
+                                                                    ? "properties"
+                                                                    : {
+                                                                          ? "items"
+                                                                          : {
+                                                                                "type": "array",
+                                                                                ? "items"
+                                                                                : {
+                                                                                      "type": "object",
+                                                                                      ? "properties"
+                                                                                      : {
+                                                                                            ? "metrics"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/VARCHAR2",
+                                                                                              },
+                                                                                            ? "metric_prefix"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/VARCHAR2",
+                                                                                              },
+                                                                                            ? "short_display_name"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/VARCHAR2",
+                                                                                              },
+                                                                                        },
+                                                                                  },
+                                                                            },
+                                                                      },
+                                                                },
+                                                        },
+                                                },
+                                        },
+                                },
+                            "parameters": [],
+                        },
+                },
+            "/metrics":
+                {
+                    "get":
+                        {
+                            "description": "Retrieve records from StreamCat",
+                            "responses":
+                                {
+                                    "200":
+                                        {
+                                            "description": "The queried record.",
+                                            "content":
+                                                {
+                                                    "application/json":
+                                                        {
+                                                            "schema":
+                                                                {
+                                                                    "type": "object",
+                                                                    ? "properties"
+                                                                    : {
+                                                                          ? "items"
+                                                                          : {
+                                                                                "type": "array",
+                                                                                ? "items"
+                                                                                : {
+                                                                                      "type": "object",
+                                                                                      ? "properties"
+                                                                                      : {
+                                                                                            ? "aoi_param_info"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "areas_of_interest"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "comid"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "conus"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "countonly"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "county_options"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "county_param_info"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "documentation"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "name_options"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "name_param_info"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "region_options"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "region_param_info"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "showpctfull"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "state_options"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "state_param_info"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                        },
+                                                                                  },
+                                                                            },
+                                                                      },
+                                                                },
+                                                        },
+                                                },
+                                        },
+                                },
+                            "parameters": [],
+                        },
+                    "post":
+                        {
+                            "description": "Create a new record on StreamCat",
+                            "responses":
+                                {
+                                    "201":
+                                        {
+                                            "description": "The successfully created record.",
+                                            "content":
+                                                {
+                                                    "application/json":
+                                                        {
+                                                            "schema":
+                                                                {
+                                                                    "type": "object",
+                                                                    ? "properties"
+                                                                    : {
+                                                                          "ret":
+                                                                              {
+                                                                                  "$ref": "#/components/schemas/RESULTSET",
+                                                                              },
+                                                                      },
+                                                                },
+                                                        },
+                                                },
+                                        },
+                                },
+                            "parameters":
+                                [
+                                    {
+                                        "name": "aoi",
+                                        "in": "header",
+                                        "schema": { "type": "string" },
+                                        "required": true,
+                                    },
+                                    {
+                                        "name": "comid",
+                                        "in": "header",
+                                        "schema": { "type": "string" },
+                                        "required": true,
+                                    },
+                                    {
+                                        "name": "conus",
+                                        "in": "header",
+                                        "schema": { "type": "string" },
+                                        "required": true,
+                                    },
+                                    {
+                                        "name": "countOnly",
+                                        "in": "header",
+                                        "schema": { "type": "string" },
+                                        "required": true,
+                                    },
+                                    {
+                                        "name": "county",
+                                        "in": "header",
+                                        "schema": { "type": "string" },
+                                        "required": true,
+                                    },
+                                    {
+                                        "name": "name",
+                                        "in": "header",
+                                        "schema": { "type": "string" },
+                                        "required": true,
+                                    },
+                                    {
+                                        "name": "region",
+                                        "in": "header",
+                                        "schema": { "type": "string" },
+                                        "required": true,
+                                    },
+                                    {
+                                        "name": "showAreaSqKm",
+                                        "in": "header",
+                                        "schema": { "type": "string" },
+                                        "required": true,
+                                    },
+                                    {
+                                        "name": "showPctFull",
+                                        "in": "header",
+                                        "schema": { "type": "string" },
+                                        "required": true,
+                                    },
+                                    {
+                                        "name": "showShape",
+                                        "in": "header",
+                                        "schema": { "type": "string" },
+                                        "required": true,
+                                    },
+                                    {
+                                        "name": "state",
+                                        "in": "header",
+                                        "schema": { "type": "string" },
+                                        "required": true,
+                                    },
+                                ],
+                        },
+                },
+            "/variable_info":
+                {
+                    "get":
+                        {
+                            "description": "Retrieve a record from StreamCat",
+                            "responses":
+                                {
+                                    "200":
+                                        {
+                                            "description": "The queried record.",
+                                            "content":
+                                                {
+                                                    "application/json":
+                                                        {
+                                                            "schema":
+                                                                {
+                                                                    "type": "object",
+                                                                    ? "properties"
+                                                                    : {},
+                                                                },
+                                                        },
+                                                },
+                                        },
+                                },
+                            "parameters":
+                                [
+                                    {
+                                        "name": "file_type",
+                                        "in": "header",
+                                        "schema": { "type": "string" },
+                                        "required": true,
+                                    },
+                                ],
+                        },
+                },
+            "/waters_streamcat":
+                {
+                    "get":
+                        {
+                            "description": "Retrieve records from StreamCat",
+                            "responses":
+                                {
+                                    "200":
+                                        {
+                                            "description": "The queried record.",
+                                            "content":
+                                                {
+                                                    "application/json":
+                                                        {
+                                                            "schema":
+                                                                {
+                                                                    "type": "object",
+                                                                    ? "properties"
+                                                                    : {
+                                                                          ? "items"
+                                                                          : {
+                                                                                "type": "array",
+                                                                                ? "items"
+                                                                                : {
+                                                                                      "type": "object",
+                                                                                      ? "properties"
+                                                                                      : {
+                                                                                            ? "agnitrogen"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "aoi"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "bfi"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "canal"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "census2010"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "coal"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "dams"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "elevation"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "epa_frs"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "fire"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "forestloss"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "geochemphys"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "impervious"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "kffact"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "landfire_veg"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "lithology"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "mines"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "nabd"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "napd"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "nlcd2006"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "nlcd2006slp"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "nlcd2011"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "pesticide"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "prism0809"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "prism_norm_8110"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "road_dens"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "road_stream_crossings"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "runoff"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "soil"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "stream_temp"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "wetness"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                        },
+                                                                                  },
+                                                                            },
+                                                                      },
+                                                                },
+                                                        },
+                                                },
+                                        },
+                                },
+                            "parameters":
+                                [
+                                    {
+                                        "name": "comid",
+                                        "in": "header",
+                                        "schema": { "type": "string" },
+                                        "required": true,
+                                    },
+                                ],
+                        },
+                },
         },
-        "/datadictionary": {
-            "get": {
-                "description": "Retrieve records from StreamCat",
-                "responses": {
-                    "200": {
-                        "description": "The queried record.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "items": {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "metrics": {
-                                                        "$ref": "#/components/schemas/VARCHAR2"
-                                                    },
-                                                    "metric_prefix": {
-                                                        "$ref": "#/components/schemas/VARCHAR2"
-                                                    },
-                                                    "short_display_name": {
-                                                        "$ref": "#/components/schemas/VARCHAR2"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+    "components":
+        {
+            "schemas":
+                {
+                    "CLOB": { "type": "string" },
+                    "NUMBER": { "type": "number" },
+                    "OTHER": { "type": "string" },
+                    "RESULTSET": { "type": "string" },
+                    "TIMESTAMP":
+                        {
+                            "type": "string",
+                            "format": "date-time",
+                            "pattern": "^\\d{4}-[01]\\d-[0123]\\dT[012]\\d:[0-5]\\d:[0-5]\\d(.\\d+)?(Z|([-+][012]\\d:[0-5]\\d))$",
+                        },
+                    "VARCHAR2": { "type": "string" },
                 },
-                "parameters": []
-            }
         },
-        "/metrics": {
-            "get": {
-                "description": "Retrieve records from StreamCat",
-                "responses": {
-                    "200": {
-                        "description": "The queried record.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "items": {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "aoi_param_info": {
-                                                        "$ref": "#/components/schemas/OTHER"
-                                                    },
-                                                    "areas_of_interest": {
-                                                        "$ref": "#/components/schemas/OTHER"
-                                                    },
-                                                    "comid": {
-                                                        "$ref": "#/components/schemas/OTHER"
-                                                    },
-                                                    "conus": {
-                                                        "$ref": "#/components/schemas/OTHER"
-                                                    },
-                                                    "countonly": {
-                                                        "$ref": "#/components/schemas/OTHER"
-                                                    },
-                                                    "county_options": {
-                                                        "$ref": "#/components/schemas/OTHER"
-                                                    },
-                                                    "county_param_info": {
-                                                        "$ref": "#/components/schemas/OTHER"
-                                                    },
-                                                    "documentation": {
-                                                        "$ref": "#/components/schemas/OTHER"
-                                                    },
-                                                    "name_options": {
-                                                        "$ref": "#/components/schemas/OTHER"
-                                                    },
-                                                    "name_param_info": {
-                                                        "$ref": "#/components/schemas/OTHER"
-                                                    },
-                                                    "region_options": {
-                                                        "$ref": "#/components/schemas/OTHER"
-                                                    },
-                                                    "region_param_info": {
-                                                        "$ref": "#/components/schemas/OTHER"
-                                                    },
-                                                    "showpctfull": {
-                                                        "$ref": "#/components/schemas/OTHER"
-                                                    },
-                                                    "state_options": {
-                                                        "$ref": "#/components/schemas/OTHER"
-                                                    },
-                                                    "state_param_info": {
-                                                        "$ref": "#/components/schemas/OTHER"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "parameters": []
-            },
-            "post": {
-                "description": "Create a new record on StreamCat",
-                "responses": {
-                    "201": {
-                        "description": "The successfully created record.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "ret": {
-                                            "$ref": "#/components/schemas/RESULTSET"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "parameters": [
-                    {
-                        "name": "areaOfInterest",
-                        "in": "header",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "required": true
-                    },
-                    {
-                        "name": "comid",
-                        "in": "header",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "required": true
-                    },
-                    {
-                        "name": "conus",
-                        "in": "header",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "required": true
-                    },
-                    {
-                        "name": "countOnly",
-                        "in": "header",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "required": true
-                    },
-                    {
-                        "name": "county",
-                        "in": "header",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "required": true
-                    },
-                    {
-                        "name": "name",
-                        "in": "header",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "required": true
-                    },
-                    {
-                        "name": "region",
-                        "in": "header",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "required": true
-                    },
-                    {
-                        "name": "showAreaSqKm",
-                        "in": "header",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "required": true
-                    },
-                    {
-                        "name": "showPctFull",
-                        "in": "header",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "required": true
-                    },
-                    {
-                        "name": "showShape",
-                        "in": "header",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "required": true
-                    },
-                    {
-                        "name": "state",
-                        "in": "header",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "required": true
-                    }
-                ]
-            }
-        },
-        "/variable_info": {
-            "get": {
-                "description": "Retrieve a record from StreamCat",
-                "responses": {
-                    "200": {
-                        "description": "The queried record.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {}
-                                }
-                            }
-                        }
-                    }
-                },
-                "parameters": [
-                    {
-                        "name": "file_type",
-                        "in": "header",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "required": true
-                    }
-                ]
-            }
-        },
-        "/waters_streamcat": {
-            "get": {
-                "description": "Retrieve records from StreamCat",
-                "responses": {
-                    "200": {
-                        "description": "The queried record.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "items": {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "object",
-                                                "properties": {}
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "parameters": [
-                    {
-                        "name": "comid",
-                        "in": "header",
-                        "schema": {
-                            "type": "string"
-                        },
-                        "required": true
-                    }
-                ]
-            }
-        }
-    },
-    "components": {
-        "schemas": {
-            "CLOB": {
-                "type": "string"
-            },
-            "NUMBER": {
-                "type": "number"
-            },
-            "OTHER": {
-                "type": "string"
-            },
-            "RESULTSET": {
-                "type": "string"
-            },
-            "TIMESTAMP": {
-                "type": "string",
-                "format": "date-time",
-                "pattern": "^\\d{4}-[01]\\d-[0123]\\dT[012]\\d:[0-5]\\d:[0-5]\\d(.\\d+)?(Z|([-+][012]\\d:[0-5]\\d))$"
-            },
-            "VARCHAR2": {
-                "type": "string"
-            }
-        }
-    }
 }
