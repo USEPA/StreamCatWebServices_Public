@@ -238,7 +238,6 @@
                                         "in": "header",
                                         "schema": { 
                                             "type": "string",
-                                            "enum": ["cat", "ws", "catrp100", "wsrp100"],
                                             "example": "cat,ws"
                                         },
                                         "required": false,
