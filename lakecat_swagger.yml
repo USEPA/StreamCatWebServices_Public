@@ -304,19 +304,6 @@
                                         "required": false,
                                     },
                                 ],
-                            "requestBody":
-                                {
-                                    "content":
-                                        {
-                                            "application/json":
-                                                {
-                                                    "schema":
-                                                        {
-                                                            "$ref": "#/components/schemas/LakeCat_ITEM",
-                                                        },
-                                                },
-                                        },
-                                },
                         },
                 },
             "/variable_info":
