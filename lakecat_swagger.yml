@@ -12,7 +12,7 @@
                 {
                     "get":
                         {
-                            "description": "Retrieve records from LakeCat",
+                            "description": "Retrieve records from LakeCat detailing changes made to DB / API",
                             "responses":
                                 {
                                     "200":
@@ -63,7 +63,7 @@
                 {
                     "get":
                         {
-                            "description": "Retrieve records from LakeCat",
+                            "description": "Retrieve descriptive information for metrics",
                             "responses":
                                 {
                                     "200":
@@ -112,9 +112,105 @@
                 },
             "/metrics":
                 {
+                    "get":
+                        {
+                            "description": "Retrieve information on metric parameters",
+                            "responses":
+                                {
+                                    "200":
+                                        {
+                                            "description": "The queried record.",
+                                            "content":
+                                                {
+                                                    "application/json":
+                                                        {
+                                                            "schema":
+                                                                {
+                                                                    "type": "object",
+                                                                    ? "properties"
+                                                                    : {
+                                                                          ? "items"
+                                                                          : {
+                                                                                "type": "array",
+                                                                                ? "items"
+                                                                                : {
+                                                                                      "type": "object",
+                                                                                      ? "properties"
+                                                                                      : {
+                                                                                            ? "aoi_param_info"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "areas_of_interest"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "comid"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "conus"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "countonly"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "county_options"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "county_param_info"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "documentation"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "name_options"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "name_param_info"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "region_options"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "region_param_info"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "showpctfull"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "state_options"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                            ? "state_param_info"
+                                                                                            : {
+                                                                                                  "$ref": "#/components/schemas/OTHER",
+                                                                                              },
+                                                                                        },
+                                                                                  },
+                                                                            },
+                                                                      },
+                                                                },
+                                                        },
+                                                },
+                                        },
+                                },
+                            "parameters": [],
+                        },
                     "post":
                         {
-                            "description": "Create a new record on LakeCat",
+                            "description": "Use POST request to retrieve long records, similar to GET /metrics that are over the GET request length limit",
                             "responses":
                                 {
                                     "201":
@@ -222,48 +318,12 @@
                                         },
                                 },
                         },
-                    "get":
-                        {
-                            "description": "Retrieve records from LakeCat",
-                            "responses":
-                                {
-                                    "200":
-                                        {
-                                            "description": "The queried record.",
-                                            "content":
-                                                {
-                                                    "application/json":
-                                                        {
-                                                            "schema":
-                                                                {
-                                                                    "type": "object",
-                                                                    ? "properties"
-                                                                    : {
-                                                                          ? "items"
-                                                                          : {
-                                                                                "type": "array",
-                                                                                ? "items"
-                                                                                : {
-                                                                                      "type": "object",
-                                                                                      ? "properties"
-                                                                                      : {
-                                                                                            
-                                                                                        },
-                                                                                  },
-                                                                            },
-                                                                      },
-                                                                },
-                                                        },
-                                                },
-                                        },
-                                },
-                        },
                 },
             "/variable_info":
                 {
                     "get":
                         {
-                            "description": "Retrieve a record from LakeCat",
+                            "description": "Retrieve a csv file of metric information from LakeCat",
                             "responses":
                                 {
                                     "200":
@@ -271,7 +331,7 @@
                                             "description": "The queried record.",
                                             "content":
                                                 {
-                                                    "application/json":
+                                                    "text/csv":
                                                         {
                                                             "schema":
                                                                 {
@@ -283,15 +343,6 @@
                                                 },
                                         },
                                 },
-                            "parameters":
-                                [
-                                    {
-                                        "name": "file_type",
-                                        "in": "header",
-                                        "schema": { "type": "string" },
-                                        "required": false,
-                                    },
-                                ],
                         },
                 },
         },

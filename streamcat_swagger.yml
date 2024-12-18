@@ -8,7 +8,7 @@
                 {
                     "get":
                         {
-                            "description": "Retrieve records from StreamCat",
+                            "description": "Retrieve records from StreamCat detailing changes made to DB / API",
                             "responses":
                                 {
                                     "200":
@@ -59,7 +59,7 @@
                 {
                     "get":
                         {
-                            "description": "Retrieve records from StreamCat",
+                            "description": "Retrieve descriptive information for metrics",
                             "responses":
                                 {
                                     "200":
@@ -110,7 +110,7 @@
                 {
                     "get":
                         {
-                            "description": "Retrieve records from StreamCat",
+                            "description": "Retrieve information on metric parameters",
                             "responses":
                                 {
                                     "200":
@@ -206,7 +206,7 @@
                         },
                     "post":
                         {
-                            "description": "Create a new record on StreamCat",
+                            "description": "Use POST request to retrieve long records, similar to GET /metrics that are over the GET request length limit",
                             "responses":
                                 {
                                     "201":
@@ -309,7 +309,7 @@
                 {
                     "get":
                         {
-                            "description": "Retrieve a record from StreamCat",
+                            "description": "Retrieve a csv file of metric information from LakeCat",
                             "responses":
                                 {
                                     "200":
@@ -317,7 +317,7 @@
                                             "description": "The queried record.",
                                             "content":
                                                 {
-                                                    "application/json":
+                                                    "text/csv":
                                                         {
                                                             "schema":
                                                                 {
@@ -329,15 +329,6 @@
                                                 },
                                         },
                                 },
-                            "parameters":
-                                [
-                                    {
-                                        "name": "file_type",
-                                        "in": "header",
-                                        "schema": { "type": "string" },
-                                        "required": false,
-                                    },
-                                ],
                         },
                 },
             "/waters_streamcat":
