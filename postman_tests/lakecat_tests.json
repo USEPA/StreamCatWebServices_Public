@@ -1,0 +1,430 @@
+{
+    "info": {
+      "name": "LakeCat API Tests",
+      "_postman_id": "lakecat-tests",
+      "description": "Automated tests for LakeCat API endpoints",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "GET /changelog",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "https://api.epa.gov/StreamCat/lakes/changelog",
+            "protocol": "https",
+            "host": ["api.epa.gov"],
+            "path": ["StreamCat", "lakes", "changelog"]
+          }
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test(\"Status code is 200\", function () {",
+                "    pm.response.to.have.status(200);",
+                "});",
+                "",
+                "pm.test(\"Valid JSON response\", function () {",
+                "    pm.expect(() => pm.response.json()).to.not.throw;",
+                "});",
+                "",
+                "pm.test(\"Response time < 2000ms\", function () {",
+                "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                "});"
+              ],
+              "type": "text/javascript"
+            }
+          }
+        ]
+      },
+      {
+        "name": "GET /datadictionary",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "https://api.epa.gov/StreamCat/lakes/datadictionary",
+            "protocol": "https",
+            "host": ["api.epa.gov"],
+            "path": ["StreamCat", "lakes", "datadictionary"]
+          }
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test(\"Status code is 200\", function () {",
+                "    pm.response.to.have.status(200);",
+                "});",
+                "",
+                "pm.test(\"Valid JSON response\", function () {",
+                "    pm.expect(() => pm.response.json()).to.not.throw;",
+                "});",
+                "",
+                "pm.test(\"Response time < 2000ms\", function () {",
+                "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                "});"
+              ],
+              "type": "text/javascript"
+            }
+          }
+        ]
+      },
+      {
+        "name": "GET /metrics",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "https://api.epa.gov/StreamCat/lakes/metrics",
+            "protocol": "https",
+            "host": ["api.epa.gov"],
+            "path": ["StreamCat", "lakes", "metrics"]
+          }
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test(\"Status code is 200\", function () {",
+                "    pm.response.to.have.status(200);",
+                "});",
+                "",
+                "pm.test(\"Valid JSON response\", function () {",
+                "    pm.expect(() => pm.response.json()).to.not.throw;",
+                "});",
+                "",
+                "pm.test(\"Response time < 2000ms\", function () {",
+                "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                "});"
+              ],
+              "type": "text/javascript"
+            }
+          }
+        ]
+      },
+      {
+        "name": "GET /variable_info",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "https://api.epa.gov/StreamCat/lakes/variable_info",
+            "protocol": "https",
+            "host": ["api.epa.gov"],
+            "path": ["StreamCat", "lakes", "variable_info"]
+          }
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test(\"Status code is 200\", function () {",
+                "    pm.response.to.have.status(200);",
+                "});",
+                "",
+                "pm.test(\"Content-Type is text/csv\", function () {",
+                "    pm.response.headers.get(\"Content-Type\").includes(\"text/csv\");",
+                "});",
+                "",
+                "pm.test(\"Response time < 2000ms\", function () {",
+                "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                "});"
+              ],
+              "type": "text/javascript"
+            }
+          }
+        ]
+      },
+      {
+        "name": "GET /waters_streamcat",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "https://api.epa.gov/StreamCat/lakes/waters_streamcat",
+            "protocol": "https",
+            "host": ["api.epa.gov"],
+            "path": ["StreamCat", "lakes", "waters_streamcat"]
+          },
+          "header": [
+            {
+              "key": "comid",
+              "value": "24083377"
+            }
+          ]
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test(\"Status code is 200\", function () {",
+                "    pm.response.to.have.status(200);",
+                "});",
+                "",
+                "pm.test(\"Valid JSON response\", function () {",
+                "    pm.expect(() => pm.response.json()).to.not.throw;",
+                "});",
+                "",
+                "pm.test(\"Response time < 2000ms\", function () {",
+                "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                "});"
+              ],
+              "type": "text/javascript"
+            }
+          }
+        ]
+      },
+      {
+        "name": "POST /metrics - Comid Aggregate",
+        "request": {
+          "method": "POST",
+          "url": {
+            "raw": "https://api.epa.gov/StreamCat/lakes/metrics",
+            "protocol": "https",
+            "host": ["api.epa.gov"],
+            "path": ["StreamCat", "lakes", "metrics"]
+          },
+          "header": [
+            {
+              "key": "name",
+              "value": "clay"
+            },
+            {
+              "key": "comid",
+              "value": "24083377"
+            },
+            {
+              "key": "showpctfull",
+              "value": "true"
+            }
+          ]
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test(\"Status code is 201\", function () {",
+                "    pm.response.to.have.status(201);",
+                "});",
+                "",
+                "pm.test(\"Response has ret property\", function () {",
+                "    pm.expect(pm.response.json()).to.have.property('ret');",
+                "});",
+                "",
+                "pm.test(\"Response time < 2000ms\", function () {",
+                "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                "});"
+              ],
+              "type": "text/javascript"
+            }
+          }
+        ]
+      },
+      {
+        "name": "POST /metrics - County Aggregate",
+        "request": {
+          "method": "POST",
+          "url": {
+            "raw": "https://api.epa.gov/StreamCat/lakes/metrics",
+            "protocol": "https",
+            "host": ["api.epa.gov"],
+            "path": ["StreamCat", "lakes", "metrics"]
+          },
+          "header": [
+            {
+              "key": "name",
+              "value": "pctow2019"
+            },
+            {
+              "key": "county",
+              "value": "41003"
+            },
+            {
+              "key": "showareasqkm",
+              "value": "true"
+            }
+          ]
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test(\"Status code is 201\", function () {",
+                "    pm.response.to.have.status(201);",
+                "});",
+                "",
+                "pm.test(\"Response has ret property\", function () {",
+                "    pm.expect(pm.response.json()).to.have.property('ret');",
+                "});",
+                "",
+                "pm.test(\"Response time < 2000ms\", function () {",
+                "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                "});"
+              ],
+              "type": "text/javascript"
+            }
+          }
+        ]
+      },
+      {
+        "name": "POST /metrics - State Aggregate",
+        "request": {
+          "method": "POST",
+          "url": {
+            "raw": "https://api.epa.gov/StreamCat/lakes/metrics",
+            "protocol": "https",
+            "host": ["api.epa.gov"],
+            "path": ["StreamCat", "lakes", "metrics"]
+          },
+          "header": [
+            {
+              "key": "name",
+              "value": "fert"
+            },
+            {
+              "key": "state",
+              "value": "OR"
+            },
+            {
+              "key": "showshape",
+              "value": "false"
+            }
+          ]
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test(\"Status code is 201\", function () {",
+                "    pm.response.to.have.status(201);",
+                "});",
+                "",
+                "pm.test(\"Response has ret property\", function () {",
+                "    pm.expect(pm.response.json()).to.have.property('ret');",
+                "});",
+                "",
+                "pm.test(\"Response time < 2000ms\", function () {",
+                "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                "});"
+              ],
+              "type": "text/javascript"
+            }
+          }
+        ]
+      },
+      {
+        "name": "POST /metrics - Region Aggregate",
+        "request": {
+          "method": "POST",
+          "url": {
+            "raw": "https://api.epa.gov/StreamCat/lakes/metrics",
+            "protocol": "https",
+            "host": ["api.epa.gov"],
+            "path": ["StreamCat", "lakes", "metrics"]
+          },
+          "header": [
+            {
+              "key": "name",
+              "value": "tridens"
+            },
+            {
+              "key": "region",
+              "value": "Region01"
+            },
+            {
+              "key": "aoi",
+              "value": "cat,ws"
+            },
+            {
+                "key": "countOnly",
+                "value": "true"
+            }
+          ]
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test(\"Status code is 201\", function () {",
+                "    pm.response.to.have.status(201);",
+                "});",
+                "",
+                "pm.test(\"Response has ret property\", function () {",
+                "    pm.expect(pm.response.json()).to.have.property('ret');",
+                "});",
+                "",
+                "pm.test(\"Response time < 2000ms\", function () {",
+                "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                "});"
+              ],
+              "type": "text/javascript"
+            }
+          }
+        ]
+      },
+      {
+        "name": "POST /metrics - CONUS Aggregate",
+        "request": {
+          "method": "POST",
+          "url": {
+            "raw": "https://api.epa.gov/StreamCat/lakes/metrics",
+            "protocol": "https",
+            "host": ["api.epa.gov"],
+            "path": ["StreamCat", "lakes", "metrics"]
+          },
+          "header": [
+            {
+              "key": "name",
+              "value": "msst"
+            },
+            {
+              "key": "conus",
+              "value": "true"
+            },
+            {
+              "key": "countOnly",
+              "value": "false"
+            }
+          ]
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test(\"Status code is 201\", function () {",
+                "    pm.response.to.have.status(201);",
+                "});",
+                "",
+                "pm.test(\"Response has ret property\", function () {",
+                "    pm.expect(pm.response.json()).to.have.property('ret');",
+                "});",
+                "",
+                "pm.test(\"Response time < 2000ms\", function () {",
+                "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                "});"
+              ],
+              "type": "text/javascript"
+            }
+          }
+        ]
+      }
+    ]
+  }

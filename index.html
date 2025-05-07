@@ -1,22 +1,79 @@
-<!-- HTML for static distribution bundle build -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>StreamCat Swagger UI</title>
-    <link rel="stylesheet" type="text/css" href="dist/swagger-ui.css" />
-    <link rel="stylesheet" type="text/css" href="dist/index.css" />
-    
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="icon" type="image/png" href="dist/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="dist/favicon-16x16.png" sizes="16x16" />
-  </head>
 
-  <body>
-    <div id="swagger-ui"></div>
-    <footer id="topbar" style="text-align: center;"><a href="https://www.epa.gov/national-aquatic-resource-surveys/streamcat-dataset">Return to StreamCat Dataset Page</a></footer>
-    <script src="dist/swagger-ui-bundle.js" charset="UTF-8"> </script>
-    <script src="dist/swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
-    <script src="dist/swagger-initializer.js" charset="UTF-8"> </script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>StreamCat Swagger UI</title>
+  <link rel="stylesheet" type="text/css" href="dist/swagger-ui.css" />
+  <link rel="stylesheet" type="text/css" href="dist/index.css" />
+  <link rel="icon" type="image/png" href="dist/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="dist/favicon-16x16.png" sizes="16x16" />
+  <script src="dist/swagger-ui-bundle.js" charset="UTF-8"> </script>
+  <script src="dist/swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
+
+  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui.css" />
+  <script src="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui-standalone-preset.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+  <div id="header" class="header">
+    <h1>StreamCat REST API Docs : </h1>
+    <nav class="navbar">
+    
+      <a href="#streamcat-link" id="streamcat-link">Streams</a>
+      <a href="#lakecat-link" id="lakecat-link">Lakes</a>
+      <!-- <a href="#" id="wetlands-link">Wetlands (coming soon)</a> -->
+    </nav>
+
+  </div>
+  
+
+  <div id="swagger-ui"></div>
+
+  <footer id="footer">
+    <a class="footer_link" href="https://www.epa.gov/national-aquatic-resource-surveys/streamcat-dataset">StreamCat Dataset Page</a>
+  </footer>
+
+
+  <!-- <script src="dist/index.js" charset="UTF-8"> </script> -->
+  <!-- <script src="dist/swagger-initializer.js" charset="UTF-8"> </script> -->
+  <script>
+    const loadSwaggerUI = (url) => {
+      window.ui = SwaggerUIBundle({
+        url: url,
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset //SwaggerUIBundle.presets.apis.standaloneLayout
+        ],
+        plugins: [
+          SwaggerUIBundle.plugins.DownloadUrl
+        ],
+        layout: "StandaloneLayout"
+      });
+    };
+
+    document.getElementById('streamcat-link').addEventListener('click', () => {
+      loadSwaggerUI('streamcat_swagger.yml');
+    });
+
+    document.getElementById('lakecat-link').addEventListener('click', () => {
+      loadSwaggerUI('lakecat_swagger.yml');
+    });
+
+    // Load Streamcat by default
+    window.onload = () => {
+      //loadSwaggerUI('streamcat_swagger.yml');
+      if (window.location.hash === '#lakecat-link') {
+        loadSwaggerUI('lakecat_swagger.yml');
+      } else {
+        loadSwaggerUI('streamcat_swagger.yml');
+      }
+    };
+  </script>
+</body>
+
 </html>
